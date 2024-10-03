@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Panel Layout with Video Background</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        .top-panel {
+            position: relative;
+            height: 50%;
+        }
+        
+        .top-panel iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Make the video unclickable */
+        }
+        
+        .bottom-panel {
+            height: 50%;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Top panel with YouTube video as background -->
+        <div class="top-panel">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/P_a6itkxeSM?autoplay=1&mute=1&loop=1&playlist=P_a6itkxeSM&controls=0&modestbranding=1&showinfo=0" 
+            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <!-- Bottom panel -->
+        <div class="bottom-panel">
+            <h1>Bottom Panel Content</h1>
+        </div>
+    </div>
+</body>
+</html>
