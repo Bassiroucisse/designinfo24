@@ -3,6 +3,11 @@
 Visitez mon site live à l'adresse :
 https://ereyes.github.io/designinfo24/
 
+Exercices fait en cours :
+
+Séance 01 :
+https://ereyes.github.io/designinfo24/s02e01-video.html
+
 Séance 02 :
 https://ereyes.github.io/designinfo24/s02e02-classes.html
 
