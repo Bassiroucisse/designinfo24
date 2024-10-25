@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouton avec Heure Actuelle et Instructions</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .center-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            margin-bottom: 20px;
+        }
+        #dateTimeDisplay, #examInstructions {
+            display: none;
+        }
+        #dateTimeDisplay {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <p>Examen du cours Design d'information, M2 GSI, Univ. Paris 8.</p>
+    <button class="center-button" onclick="showDateTime()" id="btn1">Êtes-vous prêt ?</button>
+    <div id="dateTimeDisplay">il est...</div>
+
+    <div id="examInstructions">
+        <p>Vous avez 1 heure pour répondre à l'examen.</p>
+        <p>Il consiste en 10 questions ouvertes.</p>
+        <p>Si vous êtes prêt, cliquez sur le bouton</p>
+        <p><strong>Attention</strong> : vous devez être connecté à votre compte Google sur ce navigateur.</p>
+        <button class="center-button" onclick="startExam()">Je suis prêt</button>
+    </div>
+
+    <script>
+        function showDateTime() {
+            document.getElementById('btn1').style.display = "none";  // Hide the first button
+            document.getElementById("dateTimeDisplay").style.display = "block";  // Show date and time
+            document.getElementById("examInstructions").style.display = "block";  // Show instructions and second button
+            updateDateTime();  // Initial call
+            setInterval(updateDateTime, 1000);  // Update every second
+        }
+
+        function updateDateTime() {
+            const now = new Date();
+            const formattedTime = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            const formattedDate = now.toLocaleDateString('fr-FR');
+            document.getElementById("dateTimeDisplay").textContent = `il est ${formattedDate} ${formattedTime}`;
+        }
+
+        function startExam() {
+            alert("L'examen commence maintenant !");
+            window.location = "https://forms.gle/XAEuXVVdtF8ABWz4A";
+        }
+    </script>
+
+</body>
+</html>
